@@ -29,5 +29,11 @@ module.exports = {
                 use: [MiniCssExtractPlugin.loader, "css-loader"],
             }
         ]
-    }
+    },
+    devServer: {
+        open: true,
+        liveReload: true,
+        static: path.resolve(__dirname, './src'),
+    },
+    target: 'web',
 };
