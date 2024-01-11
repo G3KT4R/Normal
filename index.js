@@ -1,4 +1,8 @@
-const obj = {
-  key: 1,
-  key2: "sdfsf",
+const f = (num) => {
+  if (num === 10) {
+    console.log("Равно 10");
+  } else {
+    console.log("Не равно 10");
+  }
 };
+f();
