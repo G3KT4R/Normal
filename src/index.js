@@ -1,3 +1,8 @@
-import "./index.css";
-const num = 5;
-console.log(num);
+import './index.css';
+
+let num = 5;
+if (num === 10) {
+  num += 1;
+} else {
+  num -= 1;
+}
