@@ -6,4 +6,5 @@ const f = (num) => {
   }
 };
 f();
-console.log("Uselese change");
+console.log("Useless change");
+console.log("Useless change2");
