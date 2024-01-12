@@ -6,3 +6,4 @@ const f = (num) => {
   }
 };
 f();
+console.log("Uselese change");
