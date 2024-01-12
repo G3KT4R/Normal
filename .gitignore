@@ -23,6 +23,8 @@ lib-cov
 coverage
 *.lcov
 
+dist/
+
 # nyc test coverage
 .nyc_output
 
@@ -127,4 +129,8 @@ dist
 .yarn/unplugged
 .yarn/build-state.yml
 .yarn/install-state.gz
+<<<<<<< HEAD
 .pnp.*
+=======
+.pnp.*
+>>>>>>> a40d47377c515487d7f1629f8ae03eff5c72377a
