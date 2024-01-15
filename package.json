@@ -11,7 +11,7 @@
     "format": "node ./node_modules/prettier/bin/prettier.cjs --check --config ./prettier.json ./src --log-level warn --write",
     "lint:check": "npx eslint ./src",
     "lint:fix": "npx eslint ./src --fix",
-    "prepare": "husky install" 
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
