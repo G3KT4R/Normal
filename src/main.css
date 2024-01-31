@@ -1,0 +1,30 @@
+header {
+  color: purple;
+}
+
+img[alt="1"] {
+  width: 200px;
+  height: 100px;
+}
+
+footer {
+  color: yellow;
+}
+
+img[alt="3"] {
+  width: 200px;
+  height: 100px;
+}
+
+body {
+  background-color: plum;
+}
+body main {
+  color: green;
+}
+body img[alt="2"] {
+  width: 200px;
+  height: 100px;
+}
+
+/*# sourceMappingURL=main.css.map */

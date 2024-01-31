@@ -1,0 +1,15 @@
+@import "./header.scss";
+@import "./footer.scss";
+
+body {
+  background-color: plum;
+
+  main {
+    color: green;
+  }
+
+  img[alt="2"] {
+    width: 200px;
+    height: 100px;
+  }
+}
