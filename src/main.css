@@ -27,4 +27,8 @@ body img[alt="2"] {
   height: 100px;
 }
 
+.card {
+  display: flex;
+}
+
 /*# sourceMappingURL=main.css.map */
