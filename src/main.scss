@@ -3,7 +3,7 @@
 
 body {
   background-color: plum;
-
+  display: flex;
   main {
     color: blue;
   }
@@ -14,6 +14,10 @@ body {
   }
 }
 
-.card {
+.more {
   display: flex;
+}
+
+.more > button {
+  color: blue;
 }
