@@ -1,5 +1,5 @@
 header {
-  color: purple;
+  color: green;
 }
 
 img[alt="1"] {
@@ -8,7 +8,7 @@ img[alt="1"] {
 }
 
 footer {
-  color: yellow;
+  color: gray;
 }
 
 img[alt="3"] {
@@ -20,7 +20,7 @@ body {
   background-color: plum;
 }
 body main {
-  color: green;
+  color: blue;
 }
 body img[alt="2"] {
   width: 200px;
