@@ -1,0 +1,90 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Test webpack</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <style>
+    .cards__wrapper {
+      background-color: lightblue;
+      border: 1px solid black;
+      padding: 10px;
+      max-width: 500px;
+      min-height: 240px;
+
+      gap: 50px 10px;
+      display: flex;
+      flex-wrap: wrap;
+    }
+
+    .card {
+      background-color: #fff;
+      padding: 10px;
+      height: 220px;
+      border: 1px solid black;
+      width: calc((100% - 30px) / 4);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    * {
+      box-sizing: border-box;
+    }
+
+    .card p {
+      text-align: center;
+      padding: 10px;
+      flex-grow: 2;
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+      width: 112px;
+      justify-content: center;
+      /* text-wrap: wrap; */
+    }
+    .card h2 {
+      text-align: center;
+    }
+
+    .card img {
+      display: block;
+      width: 100%;
+      margin-bottom: 10px;
+    }
+  </style>
+  <body>
+    <div class="cards__wrapper">
+      <div class="card">
+        <img src="https://placehold.co/200" />
+        <h2>Заголовок карточки 1</h2>
+        <p>Описание</p>
+        <button>Купить</button>
+      </div>
+      <div class="card">
+        <img src="https://placehold.co/200" />
+        <h2>Заголовок карточки 2</h2>
+        <p>Описание</p>
+        <button>Купить</button>
+      </div>
+      <div class="card">
+        <img src="https://placehold.co/200" />
+        <h2>Заголовок карточки 3</h2>
+        <p>Описание</p>
+        <button>Купить</button>
+      </div>
+      <div class="card">
+        <img src="https://placehold.co/200" />
+        <h2>Заголовок карточки 4</h2>
+        <p>
+          Lorem ipsum dolor sit amet consectetur adipisicing elit. Voluptatibus
+          atque voluptas quia rerum soluta praesentium quae distinctio magni
+          quod beatae.
+        </p>
+        <button>Купить</button>
+      </div>
+    </div>
+  </body>
+</html>
