@@ -1,4 +1,4 @@
-import './index.css';
+// import "./index.css";
 
 let num = 5;
 if (num === 10) {
