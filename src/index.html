@@ -5,7 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Test webpack</title>
   </head>
+  <style>
+    * {
+      block-size: border-box;
+      padding: 0;
+      margin: 0;
+    }
+
+    .modal {
+      background-color: gray;
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100vw;
+      height: 100vh;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+    }
+
+    .modal__body {
+      width: 300px;
+      height: 200px;
+      border-radius: 10px;
+      padding: 10px;
+      background-color: white;
+    }
+  </style>
   <body>
-    <h1>Подготовка проекта для работы</h1>
+    <button id="openButton">Зарегистрироваться</button>
+    <div class="modal">
+      <div class="modal__body">
+        <p class="modal__text">Текст</p>
+        <button class="modal__close">Закрыть</button>
+      </div>
+    </div>
+
+    <button id="redButton">Красный</button>
+    <button id="greenButton">Зеленый</button>
+    <button id="blueButton">Синий</button>
   </body>
+
+  <script>
+    const body = document.querySelector("body");
+    const openButton = document.getElementById("openButton");
+    const modal = document.querySelector(".modal");
+    const closeModalButton = document.querySelector(".modal__close");
+    const modalText = document.querySelector(".modal__text");
+    const redButton = document.getElementById("redButton");
+    const greenButton = document.getElementById("greenButton");
+    const blueButton = document.getElementById("blueButton");
+
+    openButton.addEventListener("click", () => {
+      modal.style.display = "flex";
+      modalText.innerText = "Спасибо за регистрацию";
+    });
+
+    closeModalButton.addEventListener("click", () => {
+      modal.style.display = "none";
+    });
+
+    redButton.addEventListener("click", () => {
+      body.style.background = "plum";
+    });
+
+    greenButton.addEventListener("click", () => {
+      body.style.background = "lightgreen";
+    });
+
+    blueButton.addEventListener("click", () => {
+      body.style.background = "lightblue";
+    });
+  </script>
 </html>
