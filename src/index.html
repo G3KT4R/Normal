@@ -69,6 +69,22 @@
         width: calc((100%));
       }
     }
+
+    @keyframes jiggle {
+      from {
+        transform: translateX(-25px);
+      }
+
+      to {
+        transform: translateX(25px);
+      }
+    }
+
+    @media (update: fast) {
+      .card button {
+        animation: 1s jiggle linear alternate infinite;
+      }
+    }
   </style>
   <body>
     <div class="cards__wrapper">
