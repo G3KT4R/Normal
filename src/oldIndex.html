@@ -88,3 +88,178 @@
     </div>
   </body>
 </html>
+
+<!-- ---------------------------- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <style>
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(9, 11.1%);
+      grid-template-rows: repeat(7, 14.2%);
+      height: 500px;
+    }
+
+    .blue1 {
+      grid-column-start: 1;
+      grid-column-end: 2;
+      grid-row-start: 1;
+      grid-row-end: 8;
+      background-color: blue;
+    }
+
+    .green2 {
+      grid-column-start: 2;
+      grid-column-end: 6;
+      grid-row-start: 1;
+      grid-row-end: 3;
+      background-color: green;
+    }
+
+    .red3 {
+      grid-column-start: 6;
+      grid-column-end: 8;
+      grid-row-start: 1;
+      grid-row-end: 3;
+      background-color: red;
+    }
+
+    .gray4 {
+      grid-column-start: 8;
+      grid-column-end: 10;
+      grid-row-start: 1;
+      grid-row-end: 4;
+      background-color: gray;
+    }
+
+    .black5 {
+      grid-column-start: 2;
+      grid-column-end: 5;
+      grid-row-start: 3;
+      grid-row-end: 7;
+      background-color: black;
+    }
+
+    .peru6 {
+      grid-column-start: 5;
+      grid-column-end: 8;
+      grid-row-start: 3;
+      grid-row-end: 5;
+      background-color: peru;
+    }
+
+    .pink7 {
+      grid-column-start: 8;
+      grid-column-end: 10;
+      grid-row-start: 4;
+      grid-row-end: 8;
+      background-color: pink;
+    }
+
+    .plum8 {
+      grid-column-start: 2;
+      grid-column-end: 3;
+      grid-row-start: 7;
+      grid-row-end: 8;
+      background-color: plum;
+    }
+
+    .purple9 {
+      grid-column-start: 3;
+      grid-column-end: 4;
+      grid-row-start: 7;
+      grid-row-end: 8;
+      background-color: purple;
+    }
+
+    .lightblue10 {
+      grid-column-start: 4;
+      grid-column-end: 5;
+      grid-row-start: 7;
+      grid-row-end: 8;
+      background-color: lightblue;
+    }
+
+    .lightgreen11 {
+      grid-column-start: 5;
+      grid-column-end: 8;
+      grid-row-start: 5;
+      grid-row-end: 8;
+      background-color: lightgreen;
+    }
+  </style>
+  <body>
+    <div class="grid">
+      <div class="blue1"></div>
+      <div class="green2"></div>
+      <div class="red3"></div>
+      <div class="gray4"></div>
+      <div class="black5"></div>
+      <div class="peru6"></div>
+      <div class="pink7"></div>
+      <div class="plum8"></div>
+      <div class="purple9"></div>
+      <div class="lightblue10"></div>
+      <div class="lightgreen11"></div>
+    </div>
+  </body>
+</html>
+
+<!-- -------------------------------------------- -->
+
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Grid</title>
+    <link rel="stylesheet" href="./style.css" />
+  </head>
+  <style>
+    .wrepper {
+      max-width: 1920px;
+      margin: 0 auto;
+      border: 1px solid black;
+      box-sizing: border-box;
+    }
+
+    h1 {
+      font-size: 60px;
+    }
+
+    @media screen and (max-width: 769px) {
+      h1 {
+        font-size: 30px;
+      }
+    }
+
+    @media screen and (max-width: 400px) and (orientation: portrait) {
+      h1 {
+        font-size: 20px;
+      }
+    }
+
+    @media screen and (max-width: 600px) and (orientation: landscape) {
+      h1 {
+        font-size: 100px;
+      }
+    }
+  </style>
+  <body>
+    <div class="wrepper">
+      <h1>Заголовок</h1>
+      <p>
+        Lorem ipsum dolor sit amet consectetur adipisicing elit. Ab voluptate
+        culpa vitae numquam deleniti quidem, quasi quaerat? Officia, nostrum
+        officiis.
+      </p>
+    </div>
+  </body>
+</html>
