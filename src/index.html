@@ -2,18 +2,19 @@
 <html lang="en">
   <head>
     <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Test webpack</title>
+    <title>Document</title>
   </head>
   <style>
     * {
-      block-size: border-box;
+      box-sizing: border-box;
       padding: 0;
       margin: 0;
     }
 
     .modal {
-      background-color: gray;
+      background: rgba(0, 0, 0, 0.5);
       position: absolute;
       top: 0;
       left: 0;
@@ -32,49 +33,115 @@
       background-color: white;
     }
   </style>
+
   <body>
     <button id="openButton">Зарегистрироваться</button>
-    <div class="modal">
-      <div class="modal__body">
-        <p class="modal__text">Текст</p>
-        <button class="modal__close">Закрыть</button>
-      </div>
-    </div>
 
-    <button id="redButton">Красный</button>
-    <button id="greenButton">Зеленый</button>
-    <button id="blueButton">Синий</button>
+    <!-- <div class="modal">
+                <div class="modal__body">
+                    <p class="modal__text">Текст</p>
+                    <button class="modal__close">Закрыть</button>
+                </div>
+		    </div> -->
+
+    <button id="tovar1" data-productid="1">Креветки</button>
+    <button id="tovar2" data-productid="2">Пицца</button>
   </body>
 
   <script>
+    const model = {
+      modal: {
+        isOpen: false,
+        currentProduct: null,
+      },
+      products: [
+        {
+          id: 1,
+          title: "Креветки",
+          price: 100,
+          description: "Мы вкусные креветки",
+        },
+        { id: 2, title: "Пицца", price: 1000, description: "Дорогая пицца" },
+      ],
+    };
+    const watchedModel = new Proxy(model, {
+      set(target, path, value) {
+        target[path] = value;
+        if (path === "modal") {
+          buildModal(body);
+        }
+      },
+    });
+
     const body = document.querySelector("body");
     const openButton = document.getElementById("openButton");
     const modal = document.querySelector(".modal");
-    const closeModalButton = document.querySelector(".modal__close");
     const modalText = document.querySelector(".modal__text");
-    const redButton = document.getElementById("redButton");
-    const greenButton = document.getElementById("greenButton");
-    const blueButton = document.getElementById("blueButton");
+    const tovar1Button = document.getElementById("tovar1");
+    const tovar2Button = document.getElementById("tovar2");
+
+    const buildModal = (parent) => {
+      if (watchedModel.modal.isOpen) {
+        const modal = document.createElement("div");
+        modal.classList.add("modal");
+
+        const modalBody = document.createElement("div");
+        modalBody.classList.add("modal__body");
+
+        const modalText = document.createElement("p");
+        modalText.classList.add("modal__text");
+
+        const { title, price, description } = watchedModel.products.find(
+          (product) => product.id === watchedModel.modal.currentProduct
+        );
+        const modalTitle = document.createElement("p");
+        modalTitle.innerText = title;
+        const modalPrice = document.createElement("p");
+        modalPrice.innerText = price;
+        const modalDescription = document.createElement("p");
+        modalDescription.innerText = description;
+        const closeButton = document.createElement("button");
+        closeButton.classList.add("modal__close");
+        closeButton.innerText = "Закрыть";
+
+        closeButton.addEventListener("click", () => {
+          watchedModel.modal = {
+            isOpen: false,
+            text: "",
+          };
+        });
+
+        modal.appendChild(modalBody);
+        modalBody.appendChild(modalText);
+        modalBody.appendChild(modalTitle);
+        modalBody.appendChild(modalPrice);
+        modalBody.appendChild(modalDescription);
+        modalBody.appendChild(closeButton);
+        parent.appendChild(modal);
+      } else {
+        document.querySelector(".modal").remove();
+      }
+    };
 
     openButton.addEventListener("click", () => {
-      modal.style.display = "flex";
-      modalText.innerText = "Спасибо за регистрацию";
+      watchedModel.modal = {
+        isOpen: true,
+        text: "Спасибо за регистрацию",
+      };
     });
 
-    closeModalButton.addEventListener("click", () => {
-      modal.style.display = "none";
+    tovar1Button.addEventListener("click", (event) => {
+      watchedModel.modal = {
+        isOpen: true,
+        currentProduct: +event.target.dataset.productid,
+      };
     });
 
-    redButton.addEventListener("click", () => {
-      body.style.background = "plum";
-    });
-
-    greenButton.addEventListener("click", () => {
-      body.style.background = "lightgreen";
-    });
-
-    blueButton.addEventListener("click", () => {
-      body.style.background = "lightblue";
+    tovar2Button.addEventListener("click", (event) => {
+      watchedModel.modal = {
+        isOpen: true,
+        currentProduct: +event.target.dataset.productid,
+      };
     });
   </script>
 </html>
