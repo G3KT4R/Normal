@@ -1,23 +1,55 @@
 import Card from "../Card/Card";
+import Modal from "../Modal/Modal";
+import { useState } from "react";
+import Styles from "./main.module.css";
 
 const Main = () => {
+  const [isModalOpen, setIsModalOpen] = useState(false);
+  const [cardDescription, setCardDescription] = useState("");
+  const [cardImg, setCardImg] = useState("");
+
+  const openModalHandler = () => {
+    setIsModalOpen(true);
+  };
+
+  const closeModalHandler = () => {
+    setIsModalOpen(false);
+  };
+
   return (
-    <main>
+    <main className={Styles.main}>
       <Card
+        openModal={openModalHandler}
+        setDescription={setCardDescription}
+        setImg={setCardImg}
         title="Я карточка 1"
-        description="Тайм код: 1:26:00"
-        img="https://placehold.co/150"
+        description="Подробное описание первой карточки"
+        img="https://placehold.co/100"
       ></Card>
       <Card
+        openModal={openModalHandler}
+        setDescription={setCardDescription}
+        setImg={setCardImg}
         title="Я карточка 2"
-        description="Вторая"
-        img="https://placehold.co/150"
+        description="Подробное описание второй карточки"
+        img="https://placehold.co/200"
       ></Card>
       <Card
+        openModal={openModalHandler}
+        setDescription={setCardDescription}
+        setImg={setCardImg}
         title="Я карточка 3"
-        description="Третья"
-        img="https://placehold.co/150"
+        description="Подробное описание третьей карточки"
+        img="https://placehold.co/300"
       ></Card>
+
+      {isModalOpen === true && (
+        <Modal
+          closeModal={closeModalHandler}
+          description={cardDescription}
+          img={cardImg}
+        ></Modal>
+      )}
     </main>
   );
 };
