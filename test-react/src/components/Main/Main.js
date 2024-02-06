@@ -48,22 +48,16 @@ const Main = () => {
         img="https://placehold.co/300"
       ></Card>
       <button onClick={() => setIsModalOpen(true)}>Открыть модалку</button>
-      {isModalOpen === true && (
-        <Modal
-          closeModal={closeModalHandler}
-          // description={cardDescription}
-          img={cardImg}
-        ></Modal>
-      )}
+      {isModalOpen === true && <Modal closeModal={closeModalHandler}></Modal>}
 
       <button onClick={() => setIsRegistrationSuccess(true)}>
-        Тайм код: 36:47
+        Тайм Код : 44:50
       </button>
-      {isRegistrationSuccess === true && (
-        <Modal closeModal={closeRegModalHandler}>
-          <div>Спасибо за регистрацию!</div>
-        </Modal>
-      )}
+      <Modal isOpen={isRegistrationSuccess} close={closeRegModalHandler}>
+        <h2>Заголовок регистрационного окна</h2>
+        <div>Спасибо за регистрацию!</div>
+        <button onClick={() => closeRegModalHandler()}>Закрыть модалку</button>
+      </Modal>
     </main>
   );
 };
