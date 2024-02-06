@@ -9,7 +9,8 @@ const Modal = (props) => {
     <div className={Styles.modal}>
       <div className={Styles["modal__content"]}>
         <img src={props.img}></img>
-        <p>{props.description}</p>
+        {props.children}
+        {/* <p>{props.description}</p> */}
         <button onClick={closeModalHandler}>Закрыть</button>
       </div>
     </div>

@@ -7,6 +7,7 @@ const Main = () => {
   const [isModalOpen, setIsModalOpen] = useState(false);
   const [cardDescription, setCardDescription] = useState("");
   const [cardImg, setCardImg] = useState("");
+  const [isRegistrationSuccess, setIsRegistrationSuccess] = useState(false);
 
   const openModalHandler = () => {
     setIsModalOpen(true);
@@ -14,6 +15,10 @@ const Main = () => {
 
   const closeModalHandler = () => {
     setIsModalOpen(false);
+  };
+
+  const closeRegModalHandler = () => {
+    setIsRegistrationSuccess(false);
   };
 
   return (
@@ -42,13 +47,22 @@ const Main = () => {
         description="Подробное описание третьей карточки"
         img="https://placehold.co/300"
       ></Card>
-
+      <button onClick={() => setIsModalOpen(true)}>Открыть модалку</button>
       {isModalOpen === true && (
         <Modal
           closeModal={closeModalHandler}
-          description={cardDescription}
+          // description={cardDescription}
           img={cardImg}
         ></Modal>
+      )}
+
+      <button onClick={() => setIsRegistrationSuccess(true)}>
+        Тайм код: 36:47
+      </button>
+      {isRegistrationSuccess === true && (
+        <Modal closeModal={closeRegModalHandler}>
+          <div>Спасибо за регистрацию!</div>
+        </Modal>
       )}
     </main>
   );
