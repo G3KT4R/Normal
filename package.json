@@ -11,7 +11,7 @@
     "format": "node ./node_modules/prettier/bin/prettier.cjs --check --config ./prettier.json ./src --log-level warn --write",
     "lint:check": "npx eslint ./src",
     "lint:fix": "npx eslint ./src --fix",
-    "prepare": "husky install" 
+    "prepare": "husky install"
   },
   "author": "",
   "license": "ISC",
@@ -30,5 +30,8 @@
     "webpack-cli": "^5.1.4",
     "webpack-dev-server": "^4.15.1"
   },
-  "browserslist": "> 1%, not dead"
+  "browserslist": "> 1%, not dead",
+  "dependencies": {
+    "styled-components": "^6.1.8"
+  }
 }
