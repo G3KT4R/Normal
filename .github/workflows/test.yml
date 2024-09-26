@@ -1,0 +1,34 @@
+name: PR Linked to Issue
+
+on:
+  pull_request:
+    types: [opened]
+
+jobs:
+  link_issue:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Check out the repository
+        uses: actions/checkout@v2
+
+      - name: Get PR title and body
+        id: pr_details
+        run: |
+          echo "::set-output name=title::$(jq -r .pull_request.title $GITHUB_EVENT_PATH)"
+          echo "::set-output name=body::$(jq -r .pull_request.body $GITHUB_EVENT_PATH)"
+
+      - name: Find linked issue
+        id: find_issue
+        run: |
+          # Используем регулярное выражение для поиска номеров Issues, связанных с PR
+          ISSUE_NUMBER=$(echo "${{ steps.pr_details.outputs.body }}" | grep -oE "#[0-9]+" | head -n 1 | sed 's/#//')
+          echo "::set-output name=issue_number::${ISSUE_NUMBER}"
+
+      - name: Update linked issue
+        if: steps.find_issue.outputs.issue_number != ''
+        uses: peter-evans/create-or-update-comment@v1
+        with:
+          issue-number: ${{ steps.find_issue.outputs.issue_number }}
+          body: |
+            This issue is now **In Review** as it has a linked PR: ${{ github.event.pull_request.html_url }}
+          token: ${{ secrets.GITHUB_TOKEN }}
