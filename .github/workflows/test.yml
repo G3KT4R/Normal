@@ -12,20 +12,21 @@ jobs:
         uses: actions/checkout@v2
 
       - name: Get PR title and body
-        id: pr_details
+        id: pr_details1
         run: |
           echo "::set-output name=title::$(jq -r .pull_request.title $GITHUB_EVENT_PATH)"
           echo "::set-output name=body::$(jq -r .pull_request.body $GITHUB_EVENT_PATH)"
 
-      - name: Find linked issue
-        id: find_issue
+      - name: Get Issue number from branch name
+        id: pr_details
         run: |
-          # Используем регулярное выражение для поиска номеров Issues, связанных с PR
-          ISSUE_NUMBER=$(echo "${{ steps.pr_details.outputs.body }}" | grep -oE "#[0-9]+" | head -n 1 | sed 's/#//')
+          # Получаем имя ветки и извлекаем номер Issue из него
+          BRANCH_NAME=$(jq -r .pull_request.head.ref $GITHUB_EVENT_PATH)
+          ISSUE_NUMBER=$(echo "$BRANCH_NAME" | grep -oE '[0-9]+' | head -n 1)
           echo "::set-output name=issue_number::${ISSUE_NUMBER}"
 
       - name: Update linked issue
-        if: steps.find_issue.outputs.issue_number != ''
+        if: steps.pr_details.outputs.issue_number != ''
         uses: peter-evans/create-or-update-comment@v1
         with:
           issue-number: ${{ steps.find_issue.outputs.issue_number }}
