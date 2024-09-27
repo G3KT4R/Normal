@@ -9,3 +9,6 @@ console.log(c);
 
 const d = 'avpopas';
 console.log(d);
+
+const e = 'ananas';
+console.log(e);
