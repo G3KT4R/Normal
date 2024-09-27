@@ -2,7 +2,10 @@ const a = 'aboba';
 console.log(a);
 
 const b = 'adidas';
-console.log(b)
+console.log(b);
 
 const c = 'apivas';
-console.log(c)
+console.log(c);
+
+const d = 'avpopas';
+console.log(d);
