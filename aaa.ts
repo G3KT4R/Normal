@@ -15,3 +15,6 @@ console.log(e);
 
 const f = 'afanasy';
 console.log(f);
+
+const g = 'german';
+console.log(g);
