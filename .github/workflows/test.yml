@@ -17,9 +17,13 @@ jobs:
           # Получаем имя ветки и извлекаем номер Issue из него
           BRANCH_NAME=$(jq -r .pull_request.head.ref $GITHUB_EVENT_PATH)
           ISSUE_NUMBER=$(echo "$BRANCH_NAME" | grep -oE '[0-9]+' | head -n 1)
-          echo "${ISSUE_NUMBER}"
           echo "::set-output name=issue_number::${ISSUE_NUMBER}"
 
       - name: Move issue to "In Review"
         if: steps.pr_details.outputs.issue_number != ''
-        run: echo THIS WORKFLOW IS WORKING
+        run: |
+          curl -X POST \
+          -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
+          -H "Content-Type: application/json" \
+          -d '{"content_id": "${{ steps.pr_details.outputs.issue_number }}", "content_type": "Issue"}' \
+          https://api.github.com/projects/columns/3/cards
