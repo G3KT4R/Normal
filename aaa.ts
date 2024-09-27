@@ -18,3 +18,6 @@ console.log(f);
 
 const g = 'german';
 console.log(g);
+
+const h = 'hinkal';
+console.log(h);
