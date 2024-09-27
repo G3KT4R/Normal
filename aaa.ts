@@ -21,3 +21,6 @@ console.log(g);
 
 const h = 'hinkal';
 console.log(h);
+
+const i = 'isus';
+console.log(i);
