@@ -24,6 +24,7 @@ jobs:
         if: steps.pr_details.outputs.issue_number != ''
         run: |
           echo "Work issue to In Review IS WORK"
+          echo '{"content_id": "${{ steps.pr_details.outputs.issue_number }}", "content_type": "Issue"}'
           curl -X POST \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           -H "Content-Type: application/json" \
