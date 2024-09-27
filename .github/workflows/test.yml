@@ -23,7 +23,7 @@ jobs:
       - name: Move issue to "In Review"
         if: steps.pr_details.outputs.issue_number != ''
         run: |
-          echo "Work issue to In Review IS WORK" \
+          echo "Work issue to In Review IS WORK"
           curl -X POST \
           -H "Authorization: token ${{ secrets.GITHUB_TOKEN }}" \
           -H "Content-Type: application/json" \
