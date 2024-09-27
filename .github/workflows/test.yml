@@ -42,3 +42,4 @@ jobs:
           issue_title=$(echo "$response" | jq -r '.title')
 
           echo "Issue title: $issue_title"
+          echo "Issue JSON: $response"
