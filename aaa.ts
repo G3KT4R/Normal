@@ -12,3 +12,6 @@ console.log(d);
 
 const e = 'ananas';
 console.log(e);
+
+const f = 'afanasy';
+console.log(f);
